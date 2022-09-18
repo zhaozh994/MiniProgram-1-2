@@ -72,7 +72,7 @@
 .markBtn .weui-slideview__btn {background-color: greenyellow;}
 .starBtn .weui-slideview__btn {background-color: gold;}
 .removeBtn .weui-slideview__btn {background-color: lightsalmon;}
-
+.closeBtn .weui-slideview__btn{background-color: brown;}
 .btn-normal{
   margin: 2%;
   color: white;

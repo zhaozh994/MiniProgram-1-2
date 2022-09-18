@@ -15,7 +15,8 @@ Page({
     slideButtons: [
       {extClass: 'markBtn', text: '标记', src: "Images/icon_mark.svg"},
       {extClass: 'starBtn', text: '星标', src: "Images/icon_star.svg"},
-      {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'}
+      {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'},
+      {extClass: 'closeBtn', text: '失败', src: 'Images/icon_close.svg'}
     ],
   },
 
@@ -147,8 +148,31 @@ Page({
             //触发显示更新
             this.setData({finishedMissions: this.data.finishedMissions, unfinishedMissions: this.data.unfinishedMissions})
 
-        //如果编辑的不是自己的任务，显示提醒
-        }else{
+       
+        }
+        //如果是选择对方任务失败，减掉积分并且删除任务
+        else if(index === 3){
+          console.log(index);
+          wx.cloud.callFunction({
+            name: 'closeElement', 
+            data: {
+                    _id: mission._id, list: getApp().globalData.collectionMissionList,element}
+                  })
+          //更新本地数据
+          if(isUpper) this.data.unfinishedMissions.splice(missionIndex, 1) 
+          else this.data.finishedMissions.splice(missionIndex, 1) 
+          //如果删除完所有事项，刷新数据，让页面显示无事项图片
+          if (this.data.unfinishedMissions.length === 0 && this.data.finishedMissions.length === 0) {
+              this.setData({
+              allMissions: [],
+              unfinishedMissions: [],
+              finishedMissions: []
+              })
+          }
+        }
+         //如果编辑的不是自己的任务，显示提醒
+        else{
+          console.log("adda")
             wx.showToast({
             title: '只能编辑自己的任务',
             icon: 'error',

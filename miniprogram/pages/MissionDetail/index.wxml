@@ -1,7 +1,8 @@
 <wxs module="util" src="../util.wxs" />
 
 <view class="container white" style="animation-name: animation-blur; animation-duration: 0.8s;">
-  <image src="../../images/Mission.gif" mode='widthFix' />
+  <!-- <image src="../../images/Mission.gif" mode='widthFix' /> -->
+  <image src="https://636c-cloud1-2gi3cyple9c2fa7b-1313828619.tcb.qcloud.la/img/Mission.gif?sign=0420cffd5164ddad4d21c11ed44a8d71&t=1662649400" mode='widthFix' />
   <view class="form-group" 
   style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05); ">
     <view class="form-cell">

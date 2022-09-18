@@ -3,7 +3,6 @@ Page({
   data: {
     title: '',
     desc: '',
-    
     credit: 0,
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
